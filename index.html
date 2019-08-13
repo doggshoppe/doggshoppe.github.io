@@ -200,7 +200,7 @@
                         <h2 class="mt-0 herr-font mb-0 font-80px">About</h2>
                         <h5 class="yellow-color mt-0 text-uppercase">what makes us different</h5>
                         <p class="mt-30 font-300 font-16px">DoggeShoppe exceeds expectations and lets the ingredients shine. Having a private party or corporate event? Let us create a custom catering package just for you. We can handle groups of any size.</p>
-                        <p class="mt-30 font-300 font-16px">Serving up gourmet jumbo hot dogs and exotic sausages on a local bakery bun, made fresh daily! Each sauce and topping is paired with the meats to bring out their flavours. We put passion into our products and strive to make our customers happy and satisfied!</p>
+                        <p class="mt-30 font-300 font-16px">Serving up gourmet jumbo 1/4 lb hot dogs and exotic sausages on a local bakery bun, made fresh daily! Each sauce and topping is paired with the meats to bring out their flavours. We put passion in our product and strive to make our customers happy and satisfied!</p>
                         <p class="mt-30"><a href="https://torontofoodtrucks.ca/new-food-trucks-toronto-2019" class="btn btn-md btn-dark btn-animate btn-square"><span>Read Article <i class="tr-icon icofont icofont-arrow-right"></i></span></a></p>
                     </div>
                     <div class="col-md-6 col-sm-6 wow fadeInRight" data-wow-delay="0.2s">
@@ -391,7 +391,7 @@
                         <div class="col-inner pt-70 pb-50 spacer">
                             <h2 class="mt-0 herr-font mb-0 font-80px white-color centerize-col">Contact Us</h2>
                             <h5 class="centerize-col yellow-color mt-0 text-uppercase">Book us for your next event</h5>
-                            <form name="contact-form" id="contact-form-03" action="php/contact.php" method="POST" class="contact-form-style-03 mt-50 ">
+                            <form name="contact-form" id="contact-form-03" action="#" method="POST" class="contact-form-style-03 mt-50 ">
                                 <div class="messages"></div>
                                 <div class="form-group">
                                     <label class="sr-only" for="name">Name</label>
@@ -418,7 +418,7 @@
                                     </form>
                                 </div>
                                 <div style="text-align: center">
-                                    <button type="submit" name="submit" class=" btn btn-light-outline btn-md remove-margin btn-square centerize-col ">Send Message</button>
+                                    <button id="button-submit" type="submit" name="submit" class=" btn btn-light-outline btn-md remove-margin btn-square centerize-col ">Send Message</button>
 
 
                                 </div>
@@ -485,6 +485,57 @@
     <script type="text/javascript" src="revolution/js/revolution.extension.parallax.min.js"></script>
     <script type="text/javascript" src="revolution/js/revolution.extension.slideanims.min.js"></script>
     <script type="text/javascript" src="revolution/js/revolution.extension.video.min.js"></script>
-    <!--== Javascript Plugins End ==-->
+    <!--== Javascript Plugins End ==-->   
+    <script tpye="text/javascript" src="assets/js/form.js"></script>
+         
+         
+ <script tpye="text/javascript">
+        
+        function myFunction() {
+
+            
+            
+            var x = document.getElementById("contact-form-03");
+    
+            var i;
+            var temp_body = {};
+            for (i = 0; i < x.length; i++) {
+                //                console.log(x.elements[i].name);
+                //                console.log(x.elements[i].value);
+                //                console.log('\n');
+                temp_body[x.elements[i].name] = x.elements[i].value;
+
+
+            }
+            console.log(temp_body);
+            
+            let text = 'Name: ' + temp_body.name + '\n' + 'Email: ' + temp_body.email + '\n' + 'Messe'
+            
+            
+            let body = {
+                to: 'blake@smithstudios.ca',
+                from: 'website-contact@smithstudios.ca',
+                
+                
+            }
+            
+            
+
+            
+            
+            let url = "https://er868qs1ji.execute-api.ca-central-1.amazonaws.com/dev/";
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", url, true);
+            
+            xhr.setRequestHeader('Content-Type', 'application/json');
+
+            
+            xhr.send(JSON.stringify({
+                value: body
+            }));
+       
+        }
+    
+    </script>
 
 </body></html>
