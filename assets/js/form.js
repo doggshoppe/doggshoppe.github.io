@@ -34,9 +34,7 @@ const sendMessage = function(ev) {
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
 
 
-    xhr.send(JSON.stringify({
-        value: body
-    }));
+    xhr.send(JSON.stringify(body));
 
 
     
