@@ -30,7 +30,11 @@ const sendMessage = function(ev) {
     
     fetch(url, {
       method: "POST", 
-      body: JSON.stringify(body)
+      body: JSON.stringify(body),
+    headers: {
+        //'Content-Type': 'application/json',
+        'Content-Type': 'application/x-www-form-urlencoded',
+    },
     }).then(res => {
       console.log("Request complete! response:", res);
     });
