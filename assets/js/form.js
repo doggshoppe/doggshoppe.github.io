@@ -27,6 +27,15 @@ const sendMessage = function(ev) {
         text: text
     }
     let url = "https://er868qs1ji.execute-api.ca-central-1.amazonaws.com/dev/";
+    
+    fetch(url, {
+      method: "POST", 
+      body: JSON.stringify(body)
+    }).then(res => {
+      console.log("Request complete! response:", res);
+    });
+
+    /*
     var xhr = new XMLHttpRequest();
     xhr.open("POST", url, true);
 
@@ -36,7 +45,7 @@ const sendMessage = function(ev) {
 
     xhr.send(JSON.stringify(body));
 
-
+    */
     
 }
 
