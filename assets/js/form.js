@@ -25,7 +25,8 @@ const sendMessage = function(ev) {
     let body = {
         to: 'blake@smithstudios.ca',
         from: 'website-contact@smithstudios.ca',
-        text: text
+        text: text,
+        subject: 'New Message from Website'
     }
     let url = "https://er868qs1ji.execute-api.ca-central-1.amazonaws.com/dev/";
     
