@@ -6,46 +6,30 @@ const init = function() {
 
 const sendMessage = function(ev) {
     
-    
-       
+   
     var formObject = document.getElementById("contact-form-03");
-
 
     var temp_body = {};
     for (let i = 0; i < formObject.length; i++) {
         temp_body[formObject.elements[i].name] = formObject.elements[i].value;
     }
-    console.log(temp_body);
 
-    let text = 'Name: ' + temp_body.name + '\n' + 'Email: ' + temp_body.email + '\n' + 'Message: ' + temp_body.message + '\n' +  'Event Type: ' + temp_body.orderby;
-    
-    console.log(text)
-    console.log(typeof text)
+    let text = 'Name: ' + temp_body.name + '\n' + 'Email: ' + temp_body.email + '\n' + 'Event Type: ' + temp_body.orderby + '\n' + 'Message: ' + temp_body.message  ;
     
     let body = {
-        to: 'blake@smithstudios.ca',
-        from: 'website-contact@smithstudios.ca',
+        to: 'doggshoppetoronto@gmail.com',
+        from: 'website-contact-page@smithstudios.ca',
         text: text,
         subject: 'New Message from Website'
     }
     let url = "https://er868qs1ji.execute-api.ca-central-1.amazonaws.com/dev/";
     
-        
-    console.log(body)
-    console.log(JSON.stringify(body))
-    
     var xhr = new XMLHttpRequest();
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            var json = JSON.parse(xhr.responseText);
-            console.log(json.email + ", " + json.password);
-        }
-    };
     var data = JSON.stringify(body);
     xhr.send(data);
-    
+    alert("Message Sent!");
     /*
     fetch(url, {
       method: "POST", 
