@@ -20,6 +20,7 @@ const sendMessage = function(ev) {
     let text = 'Name: ' + temp_body.name + '\n' + 'Email: ' + temp_body.email + '\n' + 'Message: ' + temp_body.message + '\n' +  'Event Type: ' + temp_body.orderby;
     
     console.log(text)
+    console.log(typeof text)
     
     let body = {
         to: 'blake@smithstudios.ca',
@@ -28,6 +29,23 @@ const sendMessage = function(ev) {
     }
     let url = "https://er868qs1ji.execute-api.ca-central-1.amazonaws.com/dev/";
     
+        
+    console.log(body)
+    console.log(JSON.stringify(body))
+    
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            var json = JSON.parse(xhr.responseText);
+            console.log(json.email + ", " + json.password);
+        }
+    };
+    var data = JSON.stringify(body);
+    xhr.send(data);
+    
+    /*
     fetch(url, {
       method: "POST", 
       body: JSON.stringify(body),
@@ -39,7 +57,7 @@ const sendMessage = function(ev) {
       console.log("Request complete! response:", res);
     });
 
-    /*
+ 
     var xhr = new XMLHttpRequest();
     xhr.open("POST", url, true);
 
